@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "Checkout",
+  "description": "Checkout at NALANDA",
+  "version": "1.0",
+
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "activeTab", "tabs", "<all_urls>","storage","contextMenus"
+  ],
+
+  "browser_action": {
+    "default_icon": "48.png",
+    "default_popup": "popup.html"
+  },
+  "icons": { "16": "16.png",
+           "48": "48.png",
+          "128": "128.png" },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://192.168.240.106:8080/cgi-bin/koha/circ/*"],
+      "js": ["jquery-3.2.1.js", "myscript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
+
